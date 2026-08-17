@@ -93,7 +93,7 @@ export const projects: Project[] = [
       "The site you're looking at right now. Built from scratch with Next.js (App Router) and TypeScript, styled with Tailwind CSS, and animated with Framer Motion — including a dark/light theme toggle, an animated skills section, a projects grid, and a dedicated downloadable CV page.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     github: "https://github.com/alishimmm4-glitch/alishba-portfolio",
-    demo: "",
+    demo: "https://alishba-portfolio-three.vercel.app/",
     featured: true,
     metric: "Dark/Light mode · Downloadable CV",
   },
