@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --font-space-grotesk: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-jetbrains: "JetBrains Mono", ui-monospace, monospace;
+  --bg: #0a0e1a;
+  --bg-elevated: #0f1524;
+  --bg-elevated-2: #141b2e;
+  --text: #eef1f7;
+  --text-muted: #8b93a7;
+  --text-faint: #5a6278;
+  --accent: #ff5d73;
+  --accent-soft: rgba(255, 93, 115, 0.14);
+  --accent-2: #45d6c4;
+  --accent-2-soft: rgba(69, 214, 196, 0.14);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+  --glass: rgba(255, 255, 255, 0.04);
+}
+
+html.light {
+  --bg: #f5f6fa;
+  --bg-elevated: #ffffff;
+  --bg-elevated-2: #eef0f6;
+  --text: #10131a;
+  --text-muted: #565e70;
+  --text-faint: #8890a0;
+  --accent: #e2384f;
+  --accent-soft: rgba(226, 56, 79, 0.1);
+  --accent-2: #0e9488;
+  --accent-2-soft: rgba(14, 148, 136, 0.1);
+  --border: rgba(16, 19, 26, 0.08);
+  --border-strong: rgba(16, 19, 26, 0.14);
+  --glass: rgba(16, 19, 26, 0.03);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-elevated-2: var(--bg-elevated-2);
+  --color-text: var(--text);
+  --color-text-muted: var(--text-muted);
+  --color-text-faint: var(--text-faint);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-accent-2-soft: var(--accent-2-soft);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+html {
+  /* Always reserves the vertical scrollbar's width, whether or not the
+     page is currently tall enough to scroll. Without this, a short page
+     (e.g. localhost during development, before all content/images are in)
+     renders slightly wider than a long page that needs a scrollbar — which
+     shifts every centered/max-width section a few pixels and is the most
+     common reason spacing looks "different" between localhost and the
+     live, fully-populated site. */
+  scrollbar-gutter: stable;
+}
+
+:root {
+  --navbar-height: 64px;
+}
+
+html {
+  /* Compensates for the sticky navbar when jumping to an anchor
+     (e.g. clicking a nav link or using a #hash URL) so the target
+     section's heading never lands underneath the navbar. */
+  scroll-padding-top: var(--navbar-height);
+}
+
+section[id] {
+  scroll-margin-top: var(--navbar-height);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+h1, h2, h3, h4, .font-display {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono-ui {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0a0e1a;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-btn {
+  background: linear-gradient(100deg, var(--accent), var(--accent-2));
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
